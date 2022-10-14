@@ -32,7 +32,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 }
 
 const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {
-    await db.disconnect();
+    await db.connect();
 
     const products = await Product.find()
         .sort({ title: 'asc' })
